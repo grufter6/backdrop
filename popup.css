@@ -1,0 +1,37 @@
+:root { --bg: #fff; --fg: #1c1c1e; --muted: #6e6e73; --line: #e3e3e8; --accent: #3557d6; --card: #f4f4f7; }
+@media (prefers-color-scheme: dark) { :root { --bg: #19191b; --fg: #f2f2f5; --muted: #9c9ca3; --line: #2e2e33; --accent: #7c95ff; --card: #242428; } }
+* { box-sizing: border-box; }
+body { width: 400px; margin: 0; background: var(--bg); color: var(--fg); font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 14px 0; z-index: 2; }
+h1 { font-size: 15px; margin: 0 0 8px; }
+nav { display: flex; gap: 4px; }
+.tab { flex: 1; border: 0; background: none; color: var(--muted); padding: 8px 4px; font: inherit; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; }
+.tab.on { color: var(--fg); border-bottom-color: var(--accent); }
+#count { display: inline-block; min-width: 18px; padding: 0 5px; border-radius: 9px; background: var(--card); font-size: 11px; }
+.pane { display: none; padding: 12px 14px 14px; }
+.pane.on { display: block; }
+form { display: flex; gap: 6px; }
+input[type=search] { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--fg); font: inherit; }
+button { font: inherit; }
+form button, .ghost { padding: 8px 12px; border-radius: 8px; border: 0; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+.ghost { width: 100%; margin-top: 8px; background: var(--card); color: var(--fg); }
+.check { display: flex; align-items: center; gap: 6px; margin: 8px 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.item { position: relative; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; background: var(--card); }
+.item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.item .meta { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 6px 4px; font-size: 10px; color: #fff;
+              background: linear-gradient(transparent, rgba(0,0,0,.7)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item button { position: absolute; top: 6px; right: 6px; border: 0; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 700;
+               background: rgba(0,0,0,.6); color: #fff; cursor: pointer; }
+.item button.added { background: #2e9b57; }
+.item .show { right: auto; left: 6px; }
+.drop { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 40px 12px; border: 2px dashed var(--line); border-radius: 12px; cursor: pointer; text-align: center; color: var(--muted); }
+.drop strong { color: var(--fg); font-size: 14px; }
+.drop.over { border-color: var(--accent); }
+.note { color: var(--muted); font-size: 11px; margin: 10px 0 0; }
+.note a { color: var(--accent); }
+fieldset { border: 0; border-top: 1px solid var(--line); margin: 14px 0 0; padding: 12px 0 0; display: grid; gap: 8px; }
+fieldset label:not(.check) { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+select { padding: 5px 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font: inherit; }
+#toast { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); margin: 0; padding: 7px 12px; border-radius: 8px; background: var(--fg); color: var(--bg); font-weight: 600; }
+.item .hd { position: absolute; top: 6px; left: 6px; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; background: rgba(255,255,255,.9); color: #111; }

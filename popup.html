@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <h1>Backdrop</h1>
+  <nav>
+    <button class="tab on" data-tab="search">Search</button>
+    <button class="tab" data-tab="upload">Upload</button>
+    <button class="tab" data-tab="collection">Collection <span id="count">0</span></button>
+  </nav>
+</header>
+
+<section id="search" class="pane on">
+  <form id="q-form">
+    <input id="q" type="search" placeholder="Search free photos: night city, foggy forest…" autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
+  <label class="check"><input id="wide" type="checkbox" checked> Wide photos only (fit your screen)</label>
+  <div id="results" class="grid"></div>
+  <button id="more" class="ghost" hidden>More results</button>
+  <p class="note">Photos come from <a href="https://openverse.org" target="_blank">Openverse</a>: free to use under Creative Commons. Credits are saved with each photo.</p>
+</section>
+
+<section id="upload" class="pane">
+  <label id="drop" class="drop">
+    <input id="files" type="file" accept="image/*" multiple hidden>
+    <strong>Drop images here</strong>
+    <span>or click to choose from your computer</span>
+  </label>
+  <p id="upload-status" class="note"></p>
+</section>
+
+<section id="collection" class="pane">
+  <div id="mine" class="grid"></div>
+  <p id="empty" class="note">No images yet. Add some from Search or Upload.</p>
+  <fieldset>
+    <label>Change background
+      <select id="every">
+        <option value="tab">Every new tab</option>
+        <option value="hour">Every hour</option>
+        <option value="day">Every day</option>
+      </select>
+    </label>
+    <label>Darken <input id="dim" type="range" min="0" max="80" step="5"> <output id="dim-out"></output></label>
+    <label class="check"><input id="clock" type="checkbox"> Show clock</label>
+    <label class="check"><input id="searchbox" type="checkbox"> Show search box</label>
+  </fieldset>
+</section>
+<p id="toast" hidden></p>
+<script src="db.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
